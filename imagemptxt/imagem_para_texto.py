@@ -39,4 +39,4 @@ def textconvert(imagem, type, s, scala):
             arte.write("".join(linha) + "\n")
 
 if __name__ == "__main__":
-    textconvert("cellbit.jpg", "jpg", "cellbit.txt", "3")
+    textconvert("imagem.jpg", "jpg", "imagem.txt", "3")
