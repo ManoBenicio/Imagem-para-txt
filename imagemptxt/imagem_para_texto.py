@@ -1,15 +1,14 @@
 from PIL import Image
-def textconvert(imagem, type, s, scala):
-    scala = int(scala)
+
+def textconvert(imagem, tipo, s, largura, altura):
+    largura = int(largura)
+    altura = int(altura)
 
     # Abre a imagem e redimensiona
     img = Image.open(imagem)
-    w, h = img.size
-    nova_largura = w // scala
-    nova_altura = h // scala
-    img = img.resize((nova_largura, nova_altura))
+    img = img.resize((largura, altura))
 
-    #l ista o tamanho correto
+    # Lista para armazenar a representação em texto da imagem
     grade = []
 
     # Mapeia os valores RGB para caracteres
@@ -22,11 +21,10 @@ def textconvert(imagem, type, s, scala):
                   6: '/',
                   7: '(',
                   8: "'"}
-    
 
-    for y in range(nova_altura):
+    for y in range(altura):
         linha = []
-        for x in range(nova_largura):
+        for x in range(largura):
             pixel = img.getpixel((x, y))
             intensidade = sum(pixel) // 100  # Valor entre 0 e 7
             caractere = mapeamento.get(intensidade, ' ')
@@ -39,4 +37,4 @@ def textconvert(imagem, type, s, scala):
             arte.write("".join(linha) + "\n")
 
 if __name__ == "__main__":
-    textconvert("imagem.jpg", "jpg", "imagem.txt", "3")
+    textconvert("imagem.jpg", "jpg", "imagem.txt", largura=200, altura=300)
