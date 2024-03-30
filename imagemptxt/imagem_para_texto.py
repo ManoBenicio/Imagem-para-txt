@@ -37,4 +37,5 @@ def textconvert(imagem, tipo, s, largura, altura):
             arte.write("".join(linha) + "\n")
 
 if __name__ == "__main__":
+    #só mudar o nome antes do .jpg para o nome do arquivo desejado
     textconvert("imagem.jpg", "jpg", "imagem.txt", largura=200, altura=300)
